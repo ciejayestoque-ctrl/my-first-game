@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sea Runner // Fragment Hunt</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<main class="game-shell">
+		<header class="game-header">
+			<div class="brand"><span class="brand-mark">航</span><div><strong>SEA RUNNER</strong><small>FRAGMENT HUNT / 001</small></div></div>
+			<div class="top-stats"><span>SCORE <b id="score">000000</b></span><span>BEST <b id="best">000000</b></span></div>
+		</header>
+
+		<section class="game-layout">
+			<div class="board-wrap">
+				<canvas id="gameCanvas" width="900" height="560" aria-label="Sea Runner game board"></canvas>
+				<div class="overlay" id="startOverlay">
+					<p class="eyebrow">THIRD SEA / LIVE RUN</p>
+					<h1>FRAGMENT<br><em>HUNT</em></h1>
+					<p>Steer through the deep. Collect fragments. Do not touch the whirlpools.</p>
+					<button id="startButton">SET SAIL <span>→</span></button>
+				</div>
+				<div class="overlay hidden" id="gameOverOverlay">
+					<p class="eyebrow">THE SEA CLAIMED YOU</p>
+					<h2>RUN ENDED</h2>
+					<p id="finalMessage">Your haul is ready for the log.</p>
+					<button id="restartButton">SAIL AGAIN <span>↻</span></button>
+				</div>
+			</div>
+
+			<aside class="sidebar">
+				<div class="side-block mission"><span class="label">CURRENT MISSION</span><h2>HARVEST<br><i>THE TIDE</i></h2><p>Gather as many fragments as possible before the hazards close in.</p></div>
+				<div class="side-block"><span class="label">RUN DATA</span><div class="data-row"><span>FRAGMENTS</span><b id="fragments">0</b></div><div class="data-row"><span>TIME</span><b id="timer">00:00</b></div><div class="data-row"><span>COMBO</span><b id="combo">x1.0</b></div></div>
+				<div class="side-block controls"><span class="label">CONTROLS</span><div><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> MOVE</div><div><kbd>←</kbd><kbd>↑</kbd><kbd>↓</kbd><kbd>→</kbd> MOVE</div><div><kbd>SPACE</kbd> DASH</div></div>
+				<div class="dash-meter"><span class="label">DASH CHARGE</span><div class="meter"><i id="dashMeter"></i></div><small id="dashText">READY</small></div>
+			</aside>
+		</section>
+		<footer><span>CEIJAY // CAPTAIN'S LOG</span><span><i></i> OCEAN SERVER ONLINE</span></footer>
+	</main>
+	<script src="script.js"></script>
+</body>
+</html>
