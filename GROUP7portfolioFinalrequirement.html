@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GROUP 7 PORTFOLIO</title>
+
+    <style>
+        /* GENERAL STYLE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #f8fafc;
+            line-height: 1.7;
+            background:
+                radial-gradient(ellipse at 10% 10%, #4c1d95 0%, transparent 35%),
+                radial-gradient(ellipse at 90% 80%, #831843 0%, transparent 35%),
+                linear-gradient(135deg, #0f1025, #19112f, #101b35);
+            background-attachment: fixed;
+        }
+
+        /* NAVIGATION */
+        header {
+            background: rgba(15, 16, 37, 0.85);
+            backdrop-filter: blur(15px);
+            padding: 20px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(192, 132, 252, 0.25);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e879f9;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #e2e8f0;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #f0abfc;
+        }
+
+        /* PROFILE SECTIONS */
+        .hero {
+            min-height: 85vh;
+            padding: 80px 8%;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            scroll-margin-top: 90px;
+            background: rgba(255, 255, 255, 0.015);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .hero:nth-of-type(even) {
+            background: rgba(192, 132, 252, 0.045);
+        }
+
+        .profile {
+            flex-shrink: 0;
+        }
+
+        .profile img {
+            width: 270px;
+            height: 270px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #e879f9;
+            box-shadow:
+                0 0 25px rgba(232, 121, 249, 0.35),
+                0 0 65px rgba(96, 165, 250, 0.15);
+            transition: 0.4s;
+        }
+
+        .profile img:hover {
+            transform: scale(1.04);
+            box-shadow: 0 0 40px rgba(232, 121, 249, 0.5);
+        }
+
+        .intro {
+            max-width: 650px;
+        }
+
+        .greeting {
+            color: #f0abfc;
+            font-size: 19px;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .intro h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .intro h1 span,
+        .section-title span {
+            background: linear-gradient(90deg, #e879f9, #818cf8, #60a5fa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .intro h2 {
+            font-size: 20px;
+            color: #c4b5fd;
+            margin-bottom: 20px;
+        }
+
+        .intro .description {
+            color: #cbd5e1;
+            font-size: 16px;
+        }
+
+        /* CONTENT SECTIONS */
+        .content-section {
+            padding: 85px 6%;
+            text-align: center;
+            scroll-margin-top: 85px;
+        }
+
+        .section-title {
+            font-size: 38px;
+            margin-bottom: 45px;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: linear-gradient(
+                145deg,
+                rgba(139, 92, 246, 0.13),
+                rgba(30, 41, 59, 0.55)
+            );
+            padding: 28px 22px;
+            border: 1px solid rgba(196, 181, 253, 0.2);
+            border-radius: 16px;
+            text-align: left;
+            transition: 0.3s;
+            backdrop-filter: blur(10px);
+            overflow-wrap: anywhere;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: #e879f9;
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.12);
+        }
+
+        .card h3 {
+            color: #e879f9;
+            margin-bottom: 14px;
+            font-size: 20px;
+        }
+
+        .card p {
+            color: #d1d5e8;
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 28px;
+            background: rgba(10, 10, 25, 0.8);
+            color: #a5b4fc;
+            border-top: 1px solid rgba(192, 132, 252, 0.2);
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 65px 7%;
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .profile img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .intro h1 {
+                font-size: 36px;
+            }
+
+            .intro h2 {
+                font-size: 17px;
+            }
+
+            .content-section {
+                padding: 65px 7%;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP NAVIGATION -->
+    <header>
+        <div class="logo">GROUP 7 PORTFOLIO</div>
+
+        <nav>
+            <a href="#person1">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#skills">Skills</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#contact">Contact info</a>
+        </nav>
+    </header>
+
+    <!-- PERSON 1 -->
+    <section class="hero" id="person1">
+        <div class="profile">
+            <img src="c:\Users\cieja\Downloads\822535542_1403104277990918_6817921141359889071_n.jpg" alt="Person One">
+        </div>
+
+        <div class="intro">
+            <p class="greeting">Hello, i'm ceijay nice to meet you!</p>
+            <h1> <span>CEIJAY P. ESTOQUE</span></h1>
+            <h2>Student | Programmer | Developer</h2>
+            <p class="description">
+                Welcome to our portfolio! I am a student
+                who enjoys learning new skills, creating projects, editing video
+                and working toward my future goals.
+            </p>
+        </div>
+    </section>
+
+    <!-- PERSON 2 -->
+    <section class="hero" id="person2">
+        <div class="profile">
+            <img src="c:\Users\cieja\Downloads\818491045_1097129539681945_3483094846792659813_n.jpg" alt="Person Two">
+        </div>
+
+        <div class="intro">
+            <p class="greeting">Hi there! Nice to meet you.</p>
+            <h1><span>SHYLA ANN MARIE C. TORILLA</span></h1>
+            <h2>Student | Web designer | UI designer</h2>
+            <p class="description">
+                I enjoy my journey as an IT student, exploring new technologies,
+                creating applications and learning different skills. Creating something 
+                meaningful to me while gaining more experience and new possibilities. Every
+                line of code is an opportunity to learn grow, and improve my skills as an IT
+                student.
+            </p>
+        </div>
+    </section>
+
+    <!-- PERSON 3 -->
+    <section class="hero" id="person3">
+        <div class="profile">
+            <img src="c:\Users\cieja\Downloads\f734021a-e94f-4061-84fd-6b751bde51ac.jpg" alt="Person Three">
+        </div>
+
+        <div class="intro">
+            <p class="greeting">Hello! i'm jomar nice to meeet you.</p>
+            <h1><span>JOMAR N. LORENZO</span></h1>
+            <h2>Student | Developer | Programmer</h2>
+            <p class="description">
+                I enjoy my journey as a IT student, even though there are times when things get difficult and I feel stuck, but those moments only make me want to adapt and learn more. 
+            </p>
+        </div>
+    </section>
+
+    <!-- PERSON 4 -->
+    <section class="hero" id="person4">
+        <div class="profile">
+            <img src="c:\Users\cieja\Downloads\813320276_1895208234973316_7772686505098175614_n.jpg" alt="Person Four">
+        </div>
+
+        <div class="intro">
+            <p class="greeting">Welcome! I'm glad you're here.</p>
+            <h1><span>JUAN RAPHAEL B. ACOSTA</span></h1>
+            <h2>Student | UI designer | Web designer</h2>
+            <p class="description">
+               I’m an IT student from the University of Eastern Pangasinan. I’m always eager to learn new things, sharpen my skills, and dive deeper into the world of technology. To me, technology isn’t just about devices and programming it’s a powerful tool to solve real problems, discover endless possibilities, and build something truly meaningful.
+            </p>
+        </div>
+    </section>
+
+    <!-- PERSON 5 -->
+    <section class="hero" id="person5">
+        <div class="profile">
+            <img src="c:\Users\cieja\Downloads\816606470_1563871188825062_4345336230683705894_n.jpg" alt="Person Five">
+        </div>
+
+        <div class="intro">
+            <p class="greeting">Hey! Welcome to my page.</p>
+            <h1><span>PRINCESS MAE VALDEZ</span></h1>
+            <h2>Student | CSS | Teamwork</h2>
+            <p class="description">
+                I am an IT college student from University of Eastern Pangasinan. I am a hardworking,
+                 willing to learn, and passionate person about technology. I am willing to learn new things,
+                  improve my skills, and explore technology.
+            </p>
+        </div>
+    </section>
+
+    <!-- ABOUT ME -->
+    <section class="content-section" id="about">
+        <h2 class="section-title">About <span>Us</span></h2>
+
+        <div class="card-container">
+            <div class="card">
+                <h3>CEIJAY P. ESTOQUE</h3>
+                <p>
+                I'm a Senior high school graduted with NC2 in computer system servicing and i'm
+                interested in Technology, Web design and Video editing. And my
+                Goal is to Become a professional editor and successfull Programmer.
+            </p>
+            </div>
+
+            <div class="card">
+                <h3>SHYLA ANN MARIE C. TORILLA</h3>
+                <p>
+                I am an Information Technology student from University of Eastern Pangasinan.
+                I am a person who is willing to learn new things, improve my skills, and explore
+                technology, As an IT student i believe that technology is more than just computers 
+                and codes, It's a way to solve problems explore possibilities, and create something
+                meaningful. 
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>JOMAR N. LORENZO</h3>
+                <p>I am a Information Technology student who is interested in web development, technology, and programming. I enjoy learning and creating new things to improve my skills.</p>
+                
+            </div>
+
+            <div class="card">
+                <h3>JUAN RAPHAEL B. ACOSTA</h3>
+                <p>I love my journey as an IT student exploring tech and creating things that matter. Every line of code is an opportunity to learn, grow, and get better.</p>
+                
+            </div>
+
+            <div class="card">
+                <h3>PRINCESS MAE VALDEZ</h3>
+                <p>  
+                    I enjoy my journey as an IT student, exploring new technologies, creating applications, and learning different skills. Every line of code is an opportunity to learn, grow, and improve.
+               </p>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="content-section" id="skills">
+        <h2 class="section-title">Our <span>Skills</span></h2>
+
+        <div class="card-container">
+            <div class="card">
+                <h3>CEIJAY P. ESTOQUE</h3>
+                <p>· HTML and CSS</p>
+                <p>· VIDEO EDITING</p>
+                <p>· PROGRAMMING</p>
+                <p>· TIME MANAGEMENT</p>
+            </div>
+
+            <div class="card">
+                <h3>SHYLA ANN MARIE C. TORILLA</h3>
+                <p>· Programmer</p>
+                <p>· Web designer</p>
+                <p>· Communication skills</p>
+                <p>· Teamwork</p>
+            </div>
+
+            <div class="card">
+                <h3>JOMAR N. LORENZO</h3>
+                <p>· HTML</p>
+                <p>· CSS</p>
+                <p>· Teamwork</p>
+                <p>· Creativity</p>
+            </div>
+
+            <div class="card">
+                <h3>JUAN RAPHAEL B. ACOSTA</h3>
+                <p>· Good communication</p>
+                <p>· HTML</p>
+                <p>· Assembly disassembly computer</p>
+                
+            </div>
+
+            <div class="card">
+                <h3>PRINCESS MAE VALDEZ</h3>
+                <p>· Microsoft office</p>
+                <p>· CSS</p>
+                <p>· Teamwork</p>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section class="content-section" id="achievements">
+        <h2 class="section-title">Our <span>Achievements</span></h2>
+
+        <div class="card-container">
+            <div class="card">
+                <h3>CEIJAY P. ESTOQUE</h3>
+                <p>· Grade 12 with honor student</p>
+                <p>· Senior high school graduated</p>
+                <p>· NC2 holder in computer system servicing</p>
+            </div>
+
+            <div class="card">
+                <h3>SHYLA ANN MARIE C. TORILLA</h3>
+                <p>· Learned basic Coding</p>
+                <p>· Created a simple website</p>
+                <p>· Senior high school graduated</p>
+            </div>
+
+            <div class="card">
+                <h3>JOMAR N. LORENZO</h3>
+                <p>· NC2 holder in computer system servicing</p>
+                <p>· Senior high school graduated</p>
+                
+            </div>
+
+            <div class="card">
+                <h3>JUAN RAPHAEL B. ACOSTA</h3>
+                <p>· NC2 holder in computer system servicing</p>
+                <p>· Senior high school graduated</p>
+                
+            </div>
+
+            <div class="card">
+                <h3>PRINCESS MAE VALDEZ</h3>
+                <p>· NC2 holder in computer system servicing</p>
+                <p>· senior high school graduated with NC2 certificate</p>
+               
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="content-section" id="contact">
+        <h2 class="section-title">Contact <span>Us</span></h2>
+
+        <div class="card-container">
+            <div class="card">
+                <h3>CEIJAY P. ESTOQUE</h3>
+                <p>Email: ciejayestoque@gmail.com</p>
+                <p>Phone: 09773439749</p>
+            </div>
+
+            <div class="card">
+                <h3>SHYLA ANN MARIE C. TORILLA</h3>
+                <p>Email: torillashylann@gmail.com</p>
+                <p>Phone: 09067705535</p>
+            </div>
+
+            <div class="card">
+                <h3>Person Three</h3>
+                <p>Email: Jomarlorenzo520@gmail.com</p>
+                <p>Phone: 09813172077</p>
+            </div>
+
+            <div class="card">
+                <h3>Person Four</h3>
+                <p>Email: acostaraphael75@gmail.com</p>
+                <p>Phone: 09518255142</p>
+            </div>
+
+            <div class="card">
+                <h3>PRINCESS MAE VALDEZ</h3>
+                <p>Email: valdezprincessmae49@gmail.com</p>
+                <p>Phone: 09707264704</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 GROUP 7 PORTFOLIO | All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>
